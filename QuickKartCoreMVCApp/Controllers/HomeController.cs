@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using QuickKartCoreMVCApp.Models;
+using QuickKartDataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,21 +14,45 @@ namespace QuickKartCoreMVCApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly QuickKartRepository _repObj;
+        
+        public HomeController(ILogger<HomeController> logger, QuickKartRepository repObj)
         {
+            _repObj = repObj;
             _logger = logger;
         }
 
-        public string Index()
+        //public string Index(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return @"Hello...!!! My First MVC app";
+        //    }
+        //    return @"Id passed is " + id;
+        //}
+
+        public IActionResult CheckRole(IFormCollection frm)
         {
-            return @"Hello...!!! My First MVC app";
+            string userId = frm["name"];
+            string password = frm["pwd"];
+            byte? roleId = _repObj.ValidateCredentials(userId, password);
+            if (roleId == 1)
+            {
+                return RedirectToAction("AdminHome", "Admin");
+            }
+            else if (roleId == 2)
+            {
+                return RedirectToAction("CustomerHome", "Customer");
+            }
+            return View("Login");
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Login()
         {

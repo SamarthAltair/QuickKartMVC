@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickKartCoreMVCApp", "QuickKartCoreMVCApp\QuickKartCoreMVCApp.csproj", "{1147016C-DB06-40EB-A79A-2FA0037D649C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartCoreMVCApp", "QuickKartCoreMVCApp\QuickKartCoreMVCApp.csproj", "{1147016C-DB06-40EB-A79A-2FA0037D649C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartDataAccessLayer", "QuickKartDataAccessLayer\QuickKartDataAccessLayer.csproj", "{250602BC-98CE-4EAE-8714-C33EFF78C9CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1147016C-DB06-40EB-A79A-2FA0037D649C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1147016C-DB06-40EB-A79A-2FA0037D649C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1147016C-DB06-40EB-A79A-2FA0037D649C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{250602BC-98CE-4EAE-8714-C33EFF78C9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250602BC-98CE-4EAE-8714-C33EFF78C9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250602BC-98CE-4EAE-8714-C33EFF78C9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250602BC-98CE-4EAE-8714-C33EFF78C9CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

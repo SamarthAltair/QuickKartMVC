@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using QuickKartDataAccessLayer.Models;
+using Microsoft.EntityFrameworkCore;
+using QuickKartDataAccessLayer;
+
 
 namespace QuickKartCoreMVCApp
 {
@@ -24,6 +28,7 @@ namespace QuickKartCoreMVCApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<QuickKartRepository>(new QuickKartRepository(new QuickKartContext(new DbContextOptions<QuickKartContext>())));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,9 +53,18 @@ namespace QuickKartCoreMVCApp
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=User}/{action=RegisterUser}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Login}/{id?}");
+
+                //endpoints.MapControllerRoute(
+                //    name: "Admin",
+                //    pattern: "Administrator/{controller=Admin}/{action=AddProduct}/{id?}");
+
             });
         }
     }
