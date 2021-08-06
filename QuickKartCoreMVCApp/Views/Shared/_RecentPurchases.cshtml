@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<strong>Recent purchases:</strong>
+<br />
+<ul>
+    @{  
+        if (ViewBag.TopProducts.Count != 0) 
+        {
+            foreach (var product in ViewBag.TopProducts)
+            {  
+                <li>@product</li>
+            }
+        }  
+        else  
+        { 
+            <li>No products purchased</li>
+        }  
+    }
+</ul>

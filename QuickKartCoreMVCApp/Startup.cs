@@ -63,7 +63,7 @@ namespace QuickKartCoreMVCApp
 
                 //endpoints.MapControllerRoute(
                 //    name: "Admin",
-                //    pattern: "Administrator/{controller=Admin}/{action=AddProduct}/{id?}");
+                //    pattern: "{controller=Admin}/{action=AdminHome}/{id?}");
 
             });
         }

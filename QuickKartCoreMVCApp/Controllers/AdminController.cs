@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuickKartDataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,20 @@ namespace QuickKartCoreMVCApp.Controllers
     [Route("Administrator")]
     public class AdminController : Controller
     {
-        public IActionResult AdminHome()
+        private readonly QuickKartRepository _repObj;
+        public AdminController(QuickKartRepository repObj)
         {
-            return View();
+            _repObj = repObj;
         }
 
-        [Route("Product")]
-        public string AddProduct()
+        public IActionResult AdminHome()
         {
-            return @"This is Admin Home Page";
+            List<string> lstProducts = new List<string>();
+            lstProducts.Add("See and Say");
+            lstProducts.Add("Wall Stickers");
+            lstProducts.Add("Curtains");
+            ViewBag.TopProducts = lstProducts;
+            return View();
         }
     }
 }

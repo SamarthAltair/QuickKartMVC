@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Login";
 }
-<form asp-action="CheckRole">
+
+<h1>Login</h1>
+<form asp-action="CheckRole" class="align-content-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -43,6 +45,15 @@
                                 <input type="submit" class="btn" value="Login" id="btnLogin" />
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                &nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <a asp-area="" asp-controller="User" asp-action="RegisterUser">New User Registration</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
